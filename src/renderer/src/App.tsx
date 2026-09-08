@@ -26,8 +26,8 @@ function getSlotHeight(slot: string, currentSlots: string[]): number {
   if (slot === 'activity-log') return 240;
   if (slot === 'income') return 318;
   if (slot === 'allocation') {
-    // if stacked with income (no activity-log), split evenly
-    if (currentSlots.includes('income')) return 279;
+    // if stacked with income (no activity-log)
+    if (currentSlots.includes('income')) return 240;
     return 318;
   }
 

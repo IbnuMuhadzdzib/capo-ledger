@@ -76,7 +76,11 @@ export default function BottomPanel() {
         <div className="bottom-panel-year-nav">
           <button
             className="year-nav-btn"
-            onClick={() => setChartYear((y) => y - 1)}
+            onClick={() => {
+              const prev = chartYear - 1
+              setChartYear(prev)
+              useIncomeStore.getState().setPeriod(useIncomeStore.getState().periodMonth, prev)
+            }}
             title="Previous year"
           >
             ◂
@@ -84,7 +88,11 @@ export default function BottomPanel() {
           <span className="year-nav-label">{chartYear}</span>
           <button
             className="year-nav-btn"
-            onClick={() => setChartYear((y) => y + 1)}
+            onClick={() => {
+              const next = chartYear + 1
+              setChartYear(next)
+              useIncomeStore.getState().setPeriod(useIncomeStore.getState().periodMonth, next)
+            }}
             title="Next year"
           >
             ▸
